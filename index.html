@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+</head>
+
+<body>
+    <!-- <div id="loader" class="loader hidden"></div> -->
+    <div class="container" >
+         <header id="top">
+            <div id="header-name">
+                <div>
+                    <img src="weather.png" style="height:50px;width:50px;">
+                </div>
+                <div>
+                    <h1>Weather Dashboard</h1>
+                    <p>Real-time wheather information</p>    
+                </div>
+            </div>
+            <div class="theme-toggle">
+                <button class="themeBtn">🌙</button>
+            </div>
+        </header>
+        <!-- Search Section -->
+        <div class="search-section">
+            <input type="text" id="cityInput" placeholder="Enter city name..." />
+            <button id="searchBtn" onclick="search()"><i class="bi bi-search"></i> Search</button>
+        </div>
+        <!-- Weather Display -->
+        <div id="weatherCard" class="weather-card">
+             <div id="card-loader" class="card-loader">
+                <div class="weather-spinner"></div>
+                <p>Loading Weather...</p>
+            </div>
+            <div id="place-container" class="wheather-details-container">
+                <div style="display:flex;">
+                    <h2><i class="bi bi-geo-alt-fill"></i></h2>
+                    <h2 id="place">Place</h2>     
+                </div>
+                <div>
+                    <i class="bi bi-heart-fill"></i>
+                </div>          
+            </div>
+            <!-- main temparature and condition  -->
+            <div id="temprature-box">
+                <div id="main-temprature-container" class="wheather-details-container">
+                    <h3 id="temprature">00</h3>
+                    <h3>°C</h3>
+                </div>
+                <div id="condition-container" class="wheather-details-container">
+                    <h3 id="condition">conditions</h3>
+                </div>                
+            </div>
+            <div id="weather-card-sub-container">
+                <div class="sub-weather-card" style="border-left:none;">
+                    <div id="humidity-container" class="wheather-details-sub-container" style="border-left: none;">
+                        <h3 ><i class="bi bi-droplet-fill"></i></h3>
+                        <h3 id="humidity"></h3>
+                    </div>
+                    <div><h5>humidity</h5></div>
+                </div>
+                <div class="sub-weather-card">
+                    <div id="wind-container" class="wheather-details-sub-container">
+                        <h3><i class="bi bi-wind"></i></h3>
+                        <h3 id="wind"></h3>
+                    </div>
+                    <div><h5>wind</h5></div>
+                </div>
+                <div class="sub-weather-card">
+                    <div id="visibility-container" class="wheather-details-sub-container">
+                        <h3><i class="bi bi-eye-fill"></i></h3>
+                        <h3 id="visibility"></h3>
+                    </div>
+                    <div><h5>visibility</h5></div>
+                </div>
+                <div class="sub-weather-card">
+                    <div id="temprature-container" class="wheather-details-sub-container">
+                        <h3><i class="bi bi-thermometer-half"></i></h3>
+                        <h3 id="feeling-temprature"></h3>
+                    </div>
+                    <div><h5>Feels Like</h5></div>
+                </div>
+            </div>    
+        </div>
+
+        
+
+        <!-- Error Message -->
+
+        <div id="errorMsg" class="error" >Error</div>
+
+
+
+
+        <!-- Favorites -->
+
+        <div class="day-section">
+
+            <h3>5-Days Forecast </h3>
+
+            <div id="five-days">
+                <div class="days" id="day1">
+                    <div class="day-top">day</div>
+                    <div class="icon-temp">
+                        <div class="icon-forecast">icon</div>
+                        <div class="temp-section">temp</div>
+                    </div>
+                    <div class="condition-section">condition</div>
+                </div>
+                <div class="days" id="day2">
+                    <div class="day-top">day</div>
+                    <div class="icon-temp">
+                        <div class="icon-forecast">icon</div>
+                        <div class="temp-section">temp</div>
+                    </div>
+                    <div class="condition-section">condition</div>
+                </div>
+                <div class="days" id="day3">
+                    <div class="day-top">day</div>
+                    <div class="icon-temp">
+                        <div class="icon-forecast">icon</div>
+                        <div class="temp-section">temp</div>
+                    </div>
+                    <div class="condition-section">condition</div>
+                </div>
+                <div class="days" id="day4">
+                    <div class="day-top">day</div>
+                    <div class="icon-temp">
+                        <div class="icon-forecast">icon</div>
+                        <div class="temp-section">temp</div>
+                    </div>
+                    <div class="condition-section">condition</div>
+                </div>
+                <div class="days" id="day5">
+                    <div class="day-top">day</div>
+                    <div class="icon-temp">
+                        <div class="icon-forecast"></div>
+                        <div class="temp-section">temp</div>
+                    </div>
+                    <div class="condition-section">condition</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Favourate-Areas -->
+        <div class="favorites-section">
+
+            <h3>Favorites</h3>
+
+            <div id="favoritesList">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

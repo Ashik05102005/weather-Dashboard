@@ -1,0 +1,268 @@
+  /* Interns: Add your CSS here */
+
+        * { 
+            margin: 2px;
+            padding: 0;
+            box-sizing: border-box;
+            /* border:1px solid black; */
+            ;
+        }
+
+body {
+    /* background-color: linear-gradient(135deg, #f8fafc, #e2e8f0); */
+    /* background-image: url("image.png");
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background:rgb(227, 242, 252);
+    min-height: 100vh;
+    font-family: sans-serif;
+    color: #0f172a;
+
+}
+body.dark-theme{
+    background: #121212;
+    color: #eee;
+}
+
+
+.container { 
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 10px; 
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+
+}
+
+#top{
+    
+    background: rgba(205, 201, 201, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    padding: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#header-name{
+    display: flex;
+    flex-direction: row;
+    
+}
+.theme-toggle{
+    
+    display:flex;
+    flex-direction: row;
+    max-width: 50px;
+    border-radius: 16px;
+}
+.themeBtn{
+    width:50px;
+    font-size: 25px;
+    background-color: hsla(201, 63%, 77%, 0.12);
+    border-radius: 16px;
+}
+.search-section{
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding: 20px;
+    display:flex;
+    justify-content: center;
+    padding:10px;
+}
+.error{
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding: 20px;
+    display:none;
+}
+#cityInput{
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding: 20px;
+    height:30px;
+    width:200px;
+    border-radius: 5px;
+    padding:5px;
+}
+#searchBtn{
+      background: linear-gradient(
+     135deg,
+        #E3F2FD,
+        #FFF3C4
+    );
+    padding:5px;
+    border-radius: 5px;
+}
+.weather-card{
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding: 20px;
+    width:100%;
+    height:350px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    color:white;
+    
+}
+.wheather-details-container{
+    display: flex;
+    justify-content:space-between;
+}
+.bi-heart-fill{
+    font-size: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    
+}
+.bi-heart-fill.active {
+  color: #e63946;
+}
+#temprature-box{
+    width:100%;
+    height: 150px;;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+#temprature{
+    font-size: 550%;
+}
+#weather-card-sub-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 110px;
+    background: rgba(30, 30, 30, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+}
+.wheather-details-sub-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+.sub-weather-card{
+    border-left:1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.day-section{
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding: 20px;
+}
+#five-days{
+    padding:10px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.days{
+        height:250px;
+        width:20cqh;
+        border-radius: 10px;
+        border:1px solid black;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items:center;
+        background: rgba(30, 30, 30, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 25px;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+
+}
+.icon-temp{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#favoritesList{
+    
+    border-radius: 10px;
+    display:flex;
+    gap:10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding:10px;
+    margin:10px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding: 20px;
+}
+#favoritesList button{
+    
+    color:black;
+}
+.card-loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.25);
+
+    z-index: 100;
+}
+
+.card-loader.active{
+    display: flex;
+}
+.card-loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.25);
+
+    z-index: 100;
+}
+
+.card-loader.active{
+    display: flex;
+}
