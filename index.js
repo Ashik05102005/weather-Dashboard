@@ -232,6 +232,7 @@ function displayFavourites(){
     btn.style.cursor = "pointer";
     btn.style.width = "150px";
 
+
     // Add click event to fetch weather for that city
     btn.addEventListener("click", () => {
         console.log("Loading weather for:", place);

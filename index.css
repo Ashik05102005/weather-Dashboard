@@ -219,8 +219,18 @@ body.dark-theme{
     padding: 20px;
 }
 #favoritesList button{
-    
-    color:black;
+    background: rgba(30, 30, 30, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    border-radius:10px;
+    border:none;
+}
+#favoritesList button.dark-theme{
+    color:white;
 }
 .card-loader{
     position: absolute;
@@ -265,4 +275,14 @@ body.dark-theme{
 
 .card-loader.active{
     display: flex;
+}
+@media (max-width: 768px) {
+
+    .days{
+        width: 100%;
+    }
+    #favoritesList button{
+        width:100%;
+    }
+
 }
