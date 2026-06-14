@@ -79,6 +79,10 @@ body.dark-theme{
     backdrop-filter: blur(8px);   /* blurred transparency */
     border-radius: 12px;
     padding: 20px;
+    color:red;
+    border-color:red;
+    box-shadow: red;
+    text-shadow: #e63946;
     display:none;
 }
 #cityInput{
@@ -179,7 +183,7 @@ body.dark-theme{
     flex-direction: row;
     flex-wrap: wrap;
 }
-.days{
+.days.dark-theme{
         height:250px;
         width:20cqh;
         border-radius: 10px;
@@ -195,7 +199,26 @@ body.dark-theme{
         -webkit-backdrop-filter: blur(15px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         margin: 20px auto;
+        transition: all 0.3s ease;
+}
+.days{
+        height:250px;
+        width:20cqh;
+        border-radius: 10px;
+        border:1px solid black;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items:center;
+        background-color: #E3F2FD;
+        border-radius: 25px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
 
+}
+.days:hover{
+    transform: translateY(-10px);
 }
 .icon-temp{
     display:flex;

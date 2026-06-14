@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
         },
         error => {
             console.log(error);
-           getWeatherByCity("Delhi");
+            getWeatherByCity("Delhi");
         }
     );
 });
@@ -36,9 +36,11 @@ async function getWeatherByCoords(lat, lon) {
         console.log(data)
         displayCurrentWeather(data);
         // displayForecast(data);
+        hideErrorMsg()
     } 
     catch(error){
-        alert(error.message)   
+        showErrorMsg(error.message)
+        
 }
 finally{
     hideLoader();
@@ -53,9 +55,10 @@ async function getWeatherByCity(city){
         const searchData=await searchResponse.json();
         console.log(searchData);
         displayCurrentWeather(searchData);
+        hideErrorMsg()
     }
     catch(error){
-        alert(`the city is not avilable`)
+        showErrorMsg(error.message)
         console.log(error.message);
     }
     finally{
@@ -157,14 +160,20 @@ const search=()=>{
     if(city){
     console.log(city)
     getWeatherByCity(city);
-    }
-    else{
-        alert("You can't search without typing a city name!")
-    }
-    
+    }   
 }
-
-
+const debouncing=(func,delay)=>{
+    let timer;
+    return function(){
+        let context=this,
+            args=arguments;
+        clearTimeout(timer);
+        timer=setTimeout(()=>{
+            func.apply(context,args)
+        },delay)
+    }
+}
+const call=debouncing(search,1000);
 // Utility: safely get favorites from localStorage
 function getFavorites() {
   try {
@@ -264,3 +273,9 @@ themeBtn.addEventListener("click", () => {
     themeBtn.textContent = "🌙"; // switch to moon
   }
 });
+function showErrorMsg(){
+    document.getElementById("errorMsg").style.display="block";
+}
+function hideErrorMsg(){
+    document.getElementById("errorMsg").style.display="none";
+}
