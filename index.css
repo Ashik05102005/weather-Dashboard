@@ -241,7 +241,11 @@ body.dark-theme .days{
 
 .days{
         height:250px;
+<<<<<<< HEAD
         width:20%;
+=======
+        width:18%;
+>>>>>>> 77e0480 (setup media Query)
         border-radius: 10px;
         border:1px solid rgb(255, 255, 255);
         display:flex;
@@ -354,10 +358,15 @@ body.dark-theme #favoritesList button{
 @media (max-width: 768px) {
 
     .days{
+<<<<<<< HEAD
         width: 150px;
+=======
+        width:100px;
+>>>>>>> 77e0480 (setup media Query)
     }
     #favoritesList button{
-        width:100%;
+        flex:row;
+        flex-wrap: wrap;
     }
     .container{
         max-width:100%
@@ -370,7 +379,9 @@ body.dark-theme #favoritesList button{
         width: 40%;
     }
     #favoritesList button{
-        width:100%;
+        width:20%;
+        flex:row;
+        flex-wrap: wrap;
     }
     .container{
         max-width:100%
