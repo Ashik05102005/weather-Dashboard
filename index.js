@@ -97,6 +97,7 @@ async function displayCurrentWeather(RealWheatherData) {
 
 }
 async function displayImage(city) {
+    showLoader()
         try{
 
         const weatherCard=document.getElementById("weatherCard");
@@ -108,6 +109,9 @@ async function displayImage(city) {
     }
     catch(error){
         console.log(error.message)
+    }
+    finally{
+        hideLoader();
     }
 
 }

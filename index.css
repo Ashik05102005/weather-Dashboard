@@ -13,20 +13,20 @@ body {
     /* background-image: url("image.png");
     background-size: cover;
     background-repeat: no-repeat; */
-    background:rgb(227, 242, 252);
+    background:#EBF0F5;
     min-height: 100vh;
     font-family: sans-serif;
     color: #0f172a;
 
 }
 body.dark-theme{
-    background: #121212;
+    background-color: #0D131F;
     color: #eee;
 }
 
 
 .container { 
-    max-width: 90%; 
+    max-width: 70%; 
     margin: 0 auto; 
     padding: 10px; 
     min-height:100vh;
@@ -39,18 +39,22 @@ body.dark-theme{
 
 #top{
     
-    background: rgba(205, 201, 201, 0.15);
-    backdrop-filter: blur(15px);
+   background-color: #fff;
     border-radius: 12px;
     padding: 20px;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
 }
+body.dark-theme #top{
+    background-color: #182533;
+    border-radius: 16px; /* Based on the rounded corners in your image */
+    /* Add a subtle border if needed */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
 #header-name{
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: row; 
 }
 .theme-toggle{
     
@@ -60,49 +64,77 @@ body.dark-theme{
     border-radius: 16px;
 }
 .themeBtn{
+    background-color: #fff;
     width:50px;
+    height: 50px;;
     font-size: 25px;
-    background-color: hsla(201, 63%, 77%, 0.12);
-    border-radius: 16px;
+    border-radius: 50%;
+    border:1px solid rgb(156, 154, 154);
+}
+body.dark-theme .themeBtn{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .search-section{
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(8px);   /* blurred transparency */
+    background:rgb(247, 247, 255);
     border-radius: 12px;
     padding: 20px;
     display:flex;
-    justify-content: center;
-    padding:10px;
+    justify-content: space-around;
+    padding:15px;
+
 }
-.error{
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(8px);   /* blurred transparency */
-    border-radius: 12px;
-    padding: 20px;
-    color:red;
-    border-color:red;
-    box-shadow: red;
-    text-shadow: #e63946;
-    display:none;
+body.dark-theme .search-section{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 #cityInput{
-    background: rgba(255, 255, 255, 0.4);
+    background: white;
     backdrop-filter: blur(8px);   /* blurred transparency */
     border-radius: 12px;
     padding: 20px;
     height:30px;
     width:200px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding:5px;
+    border:1px solid rgb(156, 154, 154);
+    width:65%;
+    height:40px;
+}
+body.dark-theme #cityInput{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color:#fff
+}
+/* Hover State */
+#cityInput:hover {
+    border-color: #3B71F3;     /* Changes border to your Search button blue */
+    box-shadow: 0 0px 8px rgba(59, 113, 243, 0.65); /* Adds a subtle blue shadow */
+}
+body.dark-theme #cityInput:hover{
+    border:none;
+    box-shadow: none;
+
+}
+
+/* Focus State (When the user clicks inside to type) */
+#cityInput:focus {
+    outline-color:  #3B71F3;
+    border-color: #3B71F3;
+    box-shadow: 0px 0px 12px rgba(59, 113, 243, 0.6); /* Stronger glow when active */
 }
 #searchBtn{
-      background: linear-gradient(
-     135deg,
-        #E3F2FD,
-        #FFF3C4
-    );
+    background:#3B71F3;
     padding:5px;
-    border-radius: 5px;
+    border-radius: 10px;
+    border:none;
+    color:white;
+    width:25%;
+    height:40px;
+}
+#searchBtn:hover{
+    background:#4f7eec;
 }
 .weather-card{
     background: rgba(255, 255, 255, 0.4);
@@ -110,12 +142,16 @@ body.dark-theme{
     border-radius: 12px;
     padding: 20px;
     width:100%;
-    height:350px;
+    height:400px;
     display:flex;
     flex-direction:column;
     justify-content: space-around;
     color:white;
     
+}
+body.dark-theme .weather-card{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .wheather-details-container{
     display: flex;
@@ -170,12 +206,26 @@ body.dark-theme{
     justify-content: center;
     align-items: center;
 }
-
+.error{
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding: 20px;
+    color:red;
+    border-color:red;
+    box-shadow: red;
+    text-shadow: #e63946;
+    display:none;
+}
 .day-section{
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(8px);   /* blurred transparency */
     border-radius: 12px;
     padding: 20px;
+}
+body.dark-theme .day-section{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 #five-days{
     padding:10px;
@@ -183,49 +233,48 @@ body.dark-theme{
     flex-direction: row;
     flex-wrap: wrap;
 }
-.days.dark-theme{
-        height:250px;
-        width:20cqh;
-        border-radius: 10px;
-        border:1px solid black;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items:center;
-        background: rgba(30, 30, 30, 0.35);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 25px;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        margin: 20px auto;
-        transition: all 0.3s ease;
+
+body.dark-theme .days{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 .days{
         height:250px;
         width:200px;
         border-radius: 10px;
-        border:1px solid black;
+        border:1px solid rgb(255, 255, 255);
         display:flex;
         flex-direction: column;
         justify-content: space-around;
         align-items:center;
-        background-color: rgba(137, 135, 135, 0.2);
+        background-color: rgba(255, 254, 254, 0.6);
         border-radius: 25px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         margin: 20px auto;
 
 }
 .days:hover{
     transform: translateY(-10px);
+    border-color: #3B71F3;     /* Changes border to your Search button blue */
+    box-shadow: 0 0px 8px rgba(59, 113, 243, 0.65); 
 }
 .icon-temp{
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-
+.favorites-section{
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);   /* blurred transparency */
+    border-radius: 12px;
+    padding:10px;
+}
+body.dark-theme .favorites-section{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
 #favoritesList{
     
     border-radius: 10px;
@@ -236,28 +285,28 @@ body.dark-theme{
     justify-content: space-around;
     padding:10px;
     margin:10px;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(8px);   /* blurred transparency */
-    border-radius: 12px;
+    
     padding: 20px;
 }
 #favoritesList.dark-theme{
     color: #E3F2FD;
 }
 #favoritesList button{
-    background-color: rgba(137, 135, 135, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgb(251, 251, 251);
+    border: 1px solid rgb(188, 186, 186);
     border-radius: 25px;
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     border-radius:10px;
-    border:none;
+
 }
-#favoritesList button.dark-theme{
-    color:white;
+body.dark-theme #favoritesList button{
+    background-color: #182533;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color:#eee;
+
 }
+
 .card-loader{
     position: absolute;
     top: 0;
@@ -305,10 +354,26 @@ body.dark-theme{
 @media (max-width: 768px) {
 
     .days{
-        width: 100%;
+        width: 40%;
     }
     #favoritesList button{
         width:100%;
+    }
+    .container{
+        max-width:100%
+    }
+
+}
+@media (max-width: 1100px) {
+
+    .days{
+        width: 40%;
+    }
+    #favoritesList button{
+        width:100%;
+    }
+    .container{
+        max-width:100%
     }
 
 }
