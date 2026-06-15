@@ -354,7 +354,7 @@ body.dark-theme #favoritesList button{
 @media (max-width: 768px) {
 
     .days{
-        width: 40%;
+        width: 50%;
     }
     #favoritesList button{
         width:100%;
