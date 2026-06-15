@@ -33,7 +33,6 @@ async function getWeatherByCoords(lat, lon) {
         const res = await fetch(realTimeApiUrl);
         if (!res.ok) throw new Error("Location not found");
         const data = await res.json();
-        console.log(data)
         displayCurrentWeather(data);
         // displayForecast(data);
         hideErrorMsg()
@@ -53,7 +52,6 @@ async function getWeatherByCity(city){
         const searchResponse=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         if (!searchResponse.ok) throw new Error("Location not found");
         const searchData=await searchResponse.json();
-        console.log(searchData);
         displayCurrentWeather(searchData);
         hideErrorMsg()
     }
@@ -71,7 +69,6 @@ async function getWeatherByCity(city){
 async function displayCurrentWeather(RealWheatherData) { 
     showLoader()  
     try {
-        console.log(RealWheatherData.name);
         document.getElementById("place").innerHTML=RealWheatherData.name;
         document.getElementById("temprature").innerHTML=Math.round(RealWheatherData.main.temp);
         document.getElementById("condition").innerHTML=RealWheatherData.weather[0].description;
@@ -117,15 +114,12 @@ async function displayImage(city) {
 
 async function displayForcast(city) {
     try{
-
         const forecastFetch=await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`);
         const weatherData=await forecastFetch.json()
         const fiveDaysForeCast= weatherData.list.filter(item =>
             item.dt_txt.includes("12:00:00"));
-        console.log(fiveDaysForeCast);
         //set 5 days temprature
         const tempArray=document.querySelectorAll(".temp-section");
-        console.log(tempArray)
             tempArray.forEach((temp,index)=>{           
                 temp.innerHTML=`${Math.round(fiveDaysForeCast[index].main.temp)}°C`;
             })
@@ -158,22 +152,21 @@ catch(error){
 const search=()=>{
     const city=document.getElementById("cityInput").value
     if(city){
-    console.log(city)
     getWeatherByCity(city);
     }   
 }
 const debouncing=(func,delay)=>{
     let timer;
-    return function(){
-        let context=this,
-            args=arguments;
+    return function(...args){
         clearTimeout(timer);
-        timer=setTimeout(()=>{
-            func.apply(context,args)
+        timer=setTimeout(()=>{          
+            func.apply(this,args);
         },delay)
     }
 }
 const call=debouncing(search,1000);
+
+
 // Utility: safely get favorites from localStorage
 function getFavorites() {
   try {
@@ -222,8 +215,8 @@ function setupFavoriteToggle() {
     }
 
     saveFavorites(favorites);
-    displayFavourites(); // refresh list instantly
-    console.log("Favorites:", favorites);
+    // refresh list instantly
+    displayFavourites(); 
   };
 }
 
@@ -244,7 +237,6 @@ function displayFavourites(){
 
     // Add click event to fetch weather for that city
     btn.addEventListener("click", () => {
-        console.log("Loading weather for:", place);
       getWeatherByCity(place);
     });
 
@@ -252,7 +244,7 @@ function displayFavourites(){
   });
 }
 
-
+// theme button
 const themeBtn = document.querySelector(".themeBtn");
 
 // Restore theme from localStorage
@@ -273,6 +265,8 @@ themeBtn.addEventListener("click", () => {
     themeBtn.textContent = "🌙"; // switch to moon
   }
 });
+
+// to show error Msg function
 function showErrorMsg(){
     document.getElementById("errorMsg").style.display="block";
 }
